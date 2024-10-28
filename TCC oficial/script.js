@@ -1,25 +1,29 @@
-let slideIndex = 0;
-const slides = document.querySelectorAll('.slide');
+// Função para mostrar animação e modal
+function mostrarAnimacao(idLivro) {
+  const livro = document.getElementById(idLivro);
+  
+  livro.classList.add("virar");
 
-function moveSlide(n) {
-    showSlide(slideIndex += n);
+  setTimeout(mostrarModal, 1500);
 }
 
-function showSlide(n) {
-    if (n >= slides.length) {
-        slideIndex = 0;
-    }
-    if (n < 0) {
-        slideIndex = slides.length - 1;
-    }
-
-    slides.forEach((slide, index) => {
-        slide.style.display = (index === slideIndex) ? 'block' : 'none';
-    });
+function mostrarModal() {
+  document.getElementById("modal").style.display = "flex";
 }
 
-showSlide(slideIndex);
+function fecharModal() {
+  document.getElementById("modal").style.display = "none";
 
-setInterval(function() {
-    moveSlide(1);
-}, 10000);
+  document.querySelectorAll('.livro').forEach(livro => livro.classList.remove("virar"));
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("modal");
+  if (event.target === modal) {
+      fecharModal();
+  }
+}
+
+document.querySelectorAll(".livro").forEach((livro, index) => {
+  livro.addEventListener("click", () => mostrarAnimacao(`livro${index + 1}`));
+});
