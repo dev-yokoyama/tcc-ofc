@@ -124,7 +124,6 @@ form textarea{
     padding: 1rem 
 }
 .fale{
-    display: flex;
     padding: 1rem; 
     margin-left: 1rem;
     height: 100%;
@@ -143,13 +142,11 @@ form textarea{
 .info p{
     margin-top: 1.5rem;
 }
-.info i{
+.info i, span{
     font-size: 20px;
     
 }
-.info span{
-    font-size: 20px;
-}
+
 
 .redes p{
     font-size: 15px;
@@ -165,7 +162,6 @@ form textarea{
 
 .todo-contato{
     display: flex;
-    justify-content: space-between;
     /* max-width: 1200px;
     margin: 0 auto; */
 }
